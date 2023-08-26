@@ -65,15 +65,92 @@
             android:visibility="invisible" />
 
         <ImageView
-            android:id="@+id/torsoOverlay"
+            android:id="@+id/chestOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/female_torso"
+            android:src="@drawable/female_chest"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
+        <ImageView
+            android:id="@+id/throatOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_throat"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
+        <ImageView
+            android:id="@+id/coreOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_core"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
+        <ImageView
+            android:id="@+id/stomachOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_stomach"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
+        <ImageView
+            android:id="@+id/leftarmOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_left_arm"
             android:scaleType="fitCenter"
             android:visibility="invisible" />
 
-        <!-- ... other overlays if needed ... -->
+        <ImageView
+            android:id="@+id/rightarmOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_right_arm"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
 
+        <ImageView
+            android:id="@+id/leftwristOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_left_wrist"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
+        <ImageView
+            android:id="@+id/rightwristOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_right_wrist"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
+        <!-- ... other overlays if needed ... -->
+        <ImageView
+            android:id="@+id/rightlegOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_right_leg"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
+        <ImageView
+            android:id="@+id/leftlegOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_left_leg"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
+        <ImageView
+            android:id="@+id/leftankleOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_left_ankle"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
+        <ImageView
+            android:id="@+id/rightankleOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_right_ankle"
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
         <!-- The switch view button -->
         <ImageButton
             android:id="@+id/switchViewButton"
