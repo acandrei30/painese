@@ -21,20 +21,37 @@ public class MainActivity extends AppCompatActivity {
         maleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToPainLocation();
+                navigateBasedOnPainType("male");
             }
         });
 
         femaleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToPainLocation();
+                navigateBasedOnPainType("female");
             }
         });
     }
 
-    private void navigateToPainLocation() {
-        Intent intent = new Intent(MainActivity.this, PainLevelActivity.class);
+    private void navigateBasedOnPainType(String gender) {
+        Intent intent;
+
+        // Get the pain type passed from the PainLevelActivity
+        String painType = getIntent().getStringExtra("painType");
+
+        if (painType.equals("Emotional")) {
+            intent = new Intent(MainActivity.this, EmotionalPhysicalAssociation.class);
+        } else {
+            if (gender.equals("male")) {
+                intent = new Intent(MainActivity.this, PainLocationMaleActivity.class);
+            } else {
+                intent = new Intent(MainActivity.this, PainLocationActivity.class);
+            }
+        }
+
+        // Pass along the pain level and the gender
+        intent.putExtra("PAIN_LEVEL", getIntent().getStringExtra("PAIN_LEVEL"));
+        intent.putExtra("GENDER", gender);
         startActivity(intent);
     }
 }

@@ -5,30 +5,18 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Button;
 import android.widget.ImageButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PainLocationActivity extends AppCompatActivity {
 
-    private ImageView bodyBase;
-    private ImageView bodyBackBase;
-    private ImageView headOverlay;
-    private ImageView throatOverlay;
-    private ImageView chestOverlay;
-    private ImageView stomachOverlay;
-    private ImageView leftarmOverlay;
-    private ImageView rightarmOverlay;
-    private ImageView leftwristOverlay;
-    private ImageView rightwristOverlay;
-    private ImageView coreOverlay;
-    private ImageView rightlegOverlay;
-    private ImageView rightankleOverlay;
-    private ImageView leftlegOverlay;
-    private ImageView leftankleOverlay;
+    private ImageView bodyBase, bodyBackBase, headOverlay, throatOverlay, chestOverlay, stomachOverlay,
+            leftarmOverlay, rightarmOverlay, leftwristOverlay, rightwristOverlay,
+            coreOverlay, rightlegOverlay, rightankleOverlay, leftlegOverlay, leftankleOverlay,
+            progressIcon;
+
     private ImageButton switchViewButton;
-    private Button doneSelectingButton;
+    private String selectedPartName = "head";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +25,11 @@ public class PainLocationActivity extends AppCompatActivity {
 
         initializeViews();
 
-        doneSelectingButton.setOnClickListener(new View.OnClickListener() {
+        progressIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PainLocationActivity.this, InstructionsActivity.class);
+                Intent intent = new Intent(PainLocationActivity.this, HeadphonesActivity.class);
+                intent.putExtra("selectedPart", selectedPartName);
                 startActivity(intent);
             }
         });
@@ -80,7 +69,7 @@ public class PainLocationActivity extends AppCompatActivity {
         leftlegOverlay = findViewById(R.id.leftlegOverlay);
         leftankleOverlay = findViewById(R.id.leftankleOverlay);
         switchViewButton = findViewById(R.id.switchViewButton);
-        doneSelectingButton = findViewById(R.id.doneSelectingButton);
+        progressIcon = findViewById(R.id.doneSelectingImageView);
     }
 
     private void switchBodyView() {
@@ -109,8 +98,9 @@ public class PainLocationActivity extends AppCompatActivity {
         rightankleOverlay.setVisibility(View.INVISIBLE);
         leftlegOverlay.setVisibility(View.INVISIBLE);
         leftankleOverlay.setVisibility(View.INVISIBLE);
-        doneSelectingButton.setVisibility(View.INVISIBLE);
+        progressIcon.setVisibility(View.INVISIBLE);
     }
+
     private void handleTouchOnBody(float x, float y) {
         int width = bodyBase.getWidth();
         int height = bodyBase.getHeight();
@@ -121,25 +111,34 @@ public class PainLocationActivity extends AppCompatActivity {
         if (y < height * 0.5) {
             if (y < height * 0.125) { // Top 12.5% is the head
                 headOverlay.setVisibility(View.VISIBLE);
+                selectedPartName = "head";
             } else if (y < height * 0.25) { // Next 12.5% is the throat
                 throatOverlay.setVisibility(View.VISIBLE);
+                selectedPartName = "throat";
             } else if (y < height * 0.325) { // For chest, arms based on horizontal position
                 if (x < width * 0.3) {
                     rightarmOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "rightarm";
                 } else if (x < width * 0.7) {
                     chestOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "chest";
                 } else {
                     leftarmOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "leftarm";
                 }
             } else if (y < height * 0.425) { // Stomach area
                 stomachOverlay.setVisibility(View.VISIBLE);
+                selectedPartName = "stomach";
             } else { // For wrists and core
                 if (x < width * 0.35) {
                     rightwristOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "rightwrist";
                 } else if (x < width * 0.65) {
                     coreOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "core";
                 } else {
                     leftwristOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "leftwrist";
                 }
             }
         }
@@ -148,19 +147,23 @@ public class PainLocationActivity extends AppCompatActivity {
             if (y < height * 0.75) { // Legs
                 if (x < width * 0.5) {
                     rightlegOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "rightleg";
                 } else {
                     leftlegOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "leftleg";
                 }
             } else { // Ankles
                 if (x < width * 0.5) {
                     rightankleOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "rightankle";
                 } else {
                     leftankleOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "leftankle";
                 }
             }
         }
 
-        doneSelectingButton.setVisibility(View.VISIBLE);
+        progressIcon.setVisibility(View.VISIBLE);
     }
 
 

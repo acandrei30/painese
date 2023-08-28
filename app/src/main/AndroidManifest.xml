@@ -14,21 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Painease">
 
-        <activity android:name=".PainLocationActivity" />
+        <activity android:name=".PainLocationActivity" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="false" />
 
-        <activity android:name=".MainActivity"
-            android:exported="true"
-            tools:ignore="DuplicateActivity">
+        <!-- Moved the intent-filter from MainActivity to PainTypeActivity and added android:exported="true" -->
+        <activity android:name=".PainTypeActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".InstructionsActivity"></activity>
-        <activity android:name=".StartSessionActivity"></activity>
-        <activity android:name=".FeedbackActivity"></activity>
-        <activity android:name=".PainLevelActivity"></activity>
+        <activity android:name=".InstructionsActivity" android:exported="false"></activity>
+        <activity android:name=".StartSessionActivity" android:exported="false"></activity>
+        <activity android:name=".FeedbackActivity" android:exported="false"></activity>
+        <activity android:name=".PainLevelActivity" android:exported="false"></activity>
+        <activity android:name=".HeadphonesActivity" android:exported="false"></activity>
+        <activity android:name=".PhoneVibratingActivity" android:exported="false"></activity>
+        <activity android:name=".PainLocationMaleActivity" android:exported="false"></activity>
+        <activity android:name=".EmotionalPhysicalAssociation" android:exported="false"></activity>
     </application>
 
 </manifest>
