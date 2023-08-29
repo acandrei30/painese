@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#F3F3F3">
+
+    <ImageView
+        android:id="@+id/phoneVibratingImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Phone Vibrating Image" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your phone will\nstart vibrating, place\nit on where you feel\nthe pain"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PainEase uses 174hertz Solfeggio frequency both audio and vibrational"
+        android:textAlignment="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Next Icon -->
+    <ImageView
+        android:id="@+id/toStartSessionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/progress_icon_4"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Next" />
+
+</LinearLayout>
