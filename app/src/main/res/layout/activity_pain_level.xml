@@ -1,175 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#F3F3F3">
+    android:layout_height="match_parent">
 
-
-    <LinearLayout
-
+    <!-- Lottie Animation View for Background -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="start">
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_fileName="wave.json"
+        android:scaleType="fitXY"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <!-- Title Text -->
-        <TextView
-            android:id="@+id/titleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="What is your current pain level?"
-            android:textSize="18sp"
-            android:layout_marginBottom="32dp" />
-
-        <!-- Each pain level section -->
-        <!-- Minimal Pain Level Button Layout -->
         <LinearLayout
-            android:id="@+id/minimalButtonLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:selectableItemBackground"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true">
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="24dp">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/pain_level_1"
-                android:layout_marginEnd="8dp"/>
-
+            <!-- Title Text -->
             <TextView
+                android:id="@+id/titleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Minimal\nI barely notice it"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:text="What is your current pain level?"
+                android:textSize="24sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginBottom="32dp" />
 
-        </LinearLayout>
-
-        <!-- Light Pain Level Button Layout -->
-        <LinearLayout
-            android:id="@+id/lightButtonLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:selectableItemBackground"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/pain_level_02"
-                android:layout_marginEnd="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Minimal Pain Button -->
+            <Button
+                android:id="@+id/minimalButton"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:text="Light\nI can feel it lightly"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#1B4160"
+                android:contentDescription="Minimal pain button"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="I barely notice it"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:drawablePadding="8dp" />
 
-        </LinearLayout>
-        <!-- Light Pain Level Button Layout -->
-        <LinearLayout
-            android:id="@+id/moderateButtonLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:selectableItemBackground"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/pain_level_05"
-                android:layout_marginEnd="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/lightButton"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:text="Light\nI can feel it lightly"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-        <!-- ... Similarly, you can create layouts for Moderate, Intense, Severe pain levels... -->
-        <!-- Light Pain Level Button Layout -->
-        <LinearLayout
-            android:id="@+id/intenseButtonLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:selectableItemBackground"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/pain_level_03"
-                android:layout_marginEnd="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#1B4160"
+                android:contentDescription="Minimal pain button"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="I barely notice it"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/moderateButton"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:text="Light\nI can feel it lightly"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-        <!-- Light Pain Level Button Layout -->
-        <LinearLayout
-            android:id="@+id/severeButtonLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:selectableItemBackground"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/pain_level_04"
-                android:layout_marginEnd="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#1B4160"
+                android:contentDescription="Minimal pain button"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="I barely notice it"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/intenseButton"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:text="Light\nI can feel it lightly"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#1B4160"
+                android:contentDescription="Minimal pain button"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="I barely notice it"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/severeButton"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="#1B4160"
+                android:contentDescription="Minimal pain button"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="I barely notice it"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
 
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</FrameLayout>

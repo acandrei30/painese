@@ -24,30 +24,46 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-light" />
-
     <Button
         android:id="@+id/buttonPhysical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewPrompt"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_toLeftOf="@+id/textViewCenter"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="12dp"
         android:text="Physical"
-        android:contentDescription="Physical pain button" />
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1B4160"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:contentDescription="Physical pain button"
+        android:shape="rectangle"
+        android:radius="16dp"/>
 
     <Button
         android:id="@+id/buttonEmotional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewPrompt"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_toRightOf="@+id/textViewCenter"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:text="Emotional"
-        android:contentDescription="Emotional pain button" />
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1B4160"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:contentDescription="Emotional pain button"
+        android:shape="rectangle"
+        android:radius="16dp"/>
 
-    <!-- Hidden View for positioning -->
     <TextView
         android:id="@+id/textViewCenter"
         android:layout_width="0dp"

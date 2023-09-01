@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(MainActivity.this, EmotionalPhysicalAssociation.class);
         } else {
             if (gender.equals("male")) {
-                intent = new Intent(MainActivity.this, PainLocationMaleActivity.class);
+                intent = new Intent(MainActivity.this, PainLocationActivityMale.class);
             } else {
                 intent = new Intent(MainActivity.this, PainLocationActivity.class);
             }

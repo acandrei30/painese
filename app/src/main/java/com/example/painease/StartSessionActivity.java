@@ -28,7 +28,7 @@ public class StartSessionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_session);
 
         timerTextView = findViewById(R.id.timerTextView);
-        SeekBar volumeControl = findViewById(R.id.seekBar);
+
 
         // Setup media player
         mediaPlayer = MediaPlayer.create(this, R.raw.meditation_audio);
@@ -55,19 +55,7 @@ public class StartSessionActivity extends AppCompatActivity {
 
         // Volume control
         AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        volumeControl.setMax(audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
-        volumeControl.setProgress(audioManager.getStreamVolume(AudioManager.STREAM_MUSIC));
 
-        volumeControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, i, 0);
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
 
         // Start the session by default
         startSession();

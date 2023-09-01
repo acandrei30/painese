@@ -1,35 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="16dp">
+    android:layout_height="match_parent">
+
+    <!-- Lottie Animation for wave background -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_fileName="wave.json"
+        android:scaleType="fitXY" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottiePainAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/instruction"
+        android:layout_centerHorizontal="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_fileName="pain.json" />
 
     <TextView
         android:id="@+id/instruction"
-        android:layout_width="wrap_content"
+        android:layout_width="358dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="16dp"
-        android:text="Close your eyes for a moment and try to find the physical body part where your pain is concentrated"
-        android:textSize="16sp" />
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="Close your eyes and focus inwardly. Where in your body do you sense the weight of your emotional pain?"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/subtitle"
-        android:layout_width="wrap_content"
+        android:layout_width="362dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instruction"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="It can be a pressure on your head, a bump on your chest, a twitch in the stomach, etc."
-        android:textSize="14sp" />
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="Emotions can mirror tangible sensations: a heavy heart, a knotted stomach, or a tense forehead. Identify that feeling within you."
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/okButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="221dp"
+        android:layout_height="61dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
-        android:text="Ok" />
+        android:layout_marginBottom="19dp"
+        android:backgroundTint="#F8973F"
+        android:gravity="center"
+        android:text="I did it"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 </RelativeLayout>

@@ -2,18 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Lottie Animation -->
+    <!-- Lottie Background Animation -->
+
+    <!-- Lottie Abstract Animation -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_above="@+id/timerTextView"
+        android:layout_width="395dp"
+        android:layout_height="898dp"
+        android:scaleType="fitXY"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_fileName="abstract-wave.json" />
+        app:lottie_fileName="wave2.json"
+        app:lottie_loop="true" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/phoneLottieAnimationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="abstract.json"
+        app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/timerTextView"
@@ -22,42 +32,47 @@
         android:layout_above="@+id/controlLayout"
         android:layout_centerHorizontal="true"
         android:text="15:00"
-        android:layout_marginBottom="16dp" />
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:textSize="40sp"/>
+
 
     <LinearLayout
         android:id="@+id/controlLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/seekBar"
+        android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/stopButton"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/stop"
+                android:contentDescription="Stop"
                 android:scaleType="centerInside"
-                android:contentDescription="Stop" />
+                android:src="@drawable/stop" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Stop" />
+                android:text="Stop"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
 
@@ -66,49 +81,37 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/play"
+                android:contentDescription="Play/Pause"
                 android:scaleType="centerInside"
-                android:contentDescription="Play/Pause" />
+                android:src="@drawable/play" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pause" />
+                android:text="Pause"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/restartButton"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/restart"
+                android:contentDescription="Restart"
                 android:scaleType="centerInside"
-                android:contentDescription="Restart" />
+                android:src="@drawable/restart" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Restart" />
+                android:text="Restart"
+                android:textColor="@color/white"/>
         </LinearLayout>
-
     </LinearLayout>
-
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:max="900"
-        android:thumb="@drawable/seekbar_thumb"
-        android:progressDrawable="@drawable/seekbar_custom"
-        android:paddingStart="-4dp"
-        android:paddingEnd="-4dp"
-        android:layout_marginBottom="16dp" />
-
 </RelativeLayout>

@@ -10,13 +10,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PainLocationActivity extends AppCompatActivity {
 
-    private ImageView bodyBase, bodyBackBase, headOverlay, throatOverlay, chestOverlay, stomachOverlay,
-            leftarmOverlay, rightarmOverlay, leftwristOverlay, rightwristOverlay,
-            coreOverlay, rightlegOverlay, rightankleOverlay, leftlegOverlay, leftankleOverlay,
-            progressIcon;
+    private ImageView bodyBase, bodyBackBase, headOverlay, throatOverlay, chestOverlay,
+            stomachOverlay, leftarmOverlay, rightarmOverlay, leftwristOverlay,
+            rightwristOverlay, coreOverlay, rightlegOverlay, rightankleOverlay,
+            leftlegOverlay, leftankleOverlay, progressIcon,
+            backheadOverlay, backupperOverlay, backmidOverlay, backlowerOverlay,
+            bumOverlay, backleftlegOverlay, backrightlegOverlay, leftheelOverlay,
+            rightheelOverlay;
 
     private ImageButton switchViewButton;
     private String selectedPartName = "head";
+    private boolean isBodyPartSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +44,16 @@ public class PainLocationActivity extends AppCompatActivity {
                 switchBodyView();
             }
         });
-
         bodyBase.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    handleTouchOnBody(event.getX(), event.getY());
+                }
+                return true;
+            }
+        });
+        bodyBackBase.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -68,8 +80,19 @@ public class PainLocationActivity extends AppCompatActivity {
         rightankleOverlay = findViewById(R.id.rightankleOverlay);
         leftlegOverlay = findViewById(R.id.leftlegOverlay);
         leftankleOverlay = findViewById(R.id.leftankleOverlay);
-        switchViewButton = findViewById(R.id.switchViewButton);
+        backheadOverlay = findViewById(R.id.backheadOverlay);
+        backupperOverlay = findViewById(R.id.backupperOverlay);
+        backmidOverlay = findViewById(R.id.backmidOverlay);
+        backlowerOverlay = findViewById(R.id.backlowerOverlay);
+        bumOverlay = findViewById(R.id.bumOverlay);
+        backleftlegOverlay = findViewById(R.id.backleftlegOverlay);
+        backrightlegOverlay = findViewById(R.id.backrightlegOverlay);
+        leftheelOverlay = findViewById(R.id.leftheelOverlay);
+        rightheelOverlay = findViewById(R.id.rightheelOverlay);
+
+
         progressIcon = findViewById(R.id.doneSelectingImageView);
+        switchViewButton = findViewById(R.id.switchViewButton);
     }
 
     private void switchBodyView() {
@@ -98,6 +121,16 @@ public class PainLocationActivity extends AppCompatActivity {
         rightankleOverlay.setVisibility(View.INVISIBLE);
         leftlegOverlay.setVisibility(View.INVISIBLE);
         leftankleOverlay.setVisibility(View.INVISIBLE);
+        backheadOverlay.setVisibility(View.INVISIBLE);
+        backupperOverlay.setVisibility(View.INVISIBLE);
+        backmidOverlay.setVisibility(View.INVISIBLE);
+        backlowerOverlay.setVisibility(View.INVISIBLE);
+        bumOverlay.setVisibility(View.INVISIBLE);
+        backleftlegOverlay.setVisibility(View.INVISIBLE);
+        backrightlegOverlay.setVisibility(View.INVISIBLE);
+        leftheelOverlay.setVisibility(View.INVISIBLE);
+        rightheelOverlay.setVisibility(View.INVISIBLE);
+
         progressIcon.setVisibility(View.INVISIBLE);
     }
 
@@ -105,67 +138,118 @@ public class PainLocationActivity extends AppCompatActivity {
         int width = bodyBase.getWidth();
         int height = bodyBase.getHeight();
 
+        if (isBodyPartSelected) {
+            clearAllOverlays();
+            switchViewButton.setVisibility(View.VISIBLE);
+            progressIcon.setVisibility(View.INVISIBLE);
+            isBodyPartSelected = false;
+            return;
+        }
+
         clearAllOverlays();
 
-        // For Upper Body
-        if (y < height * 0.5) {
-            if (y < height * 0.125) { // Top 12.5% is the head
-                headOverlay.setVisibility(View.VISIBLE);
-                selectedPartName = "head";
-            } else if (y < height * 0.25) { // Next 12.5% is the throat
-                throatOverlay.setVisibility(View.VISIBLE);
-                selectedPartName = "throat";
-            } else if (y < height * 0.325) { // For chest, arms based on horizontal position
-                if (x < width * 0.3) {
-                    rightarmOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "rightarm";
-                } else if (x < width * 0.7) {
-                    chestOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "chest";
-                } else {
-                    leftarmOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "leftarm";
-                }
-            } else if (y < height * 0.425) { // Stomach area
-                stomachOverlay.setVisibility(View.VISIBLE);
-                selectedPartName = "stomach";
-            } else { // For wrists and core
-                if (x < width * 0.35) {
-                    rightwristOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "rightwrist";
-                } else if (x < width * 0.65) {
-                    coreOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "core";
-                } else {
-                    leftwristOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "leftwrist";
-                }
-            }
-        }
-        // For Lower Body
-        else {
-            if (y < height * 0.75) { // Legs
-                if (x < width * 0.5) {
-                    rightlegOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "rightleg";
-                } else {
-                    leftlegOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "leftleg";
-                }
-            } else { // Ankles
-                if (x < width * 0.5) {
-                    rightankleOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "rightankle";
-                } else {
-                    leftankleOverlay.setVisibility(View.VISIBLE);
-                    selectedPartName = "leftankle";
-                }
-            }
-        }
+        if (bodyBase.getVisibility() == View.VISIBLE) {
+            // Touch Handling for Front Body View
 
+            // For Upper Body
+            if (y < height * 0.5) {
+                if (y < height * 0.125) {
+                    headOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "head";
+                } else if (y < height * 0.25) {
+                    throatOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "throat";
+                } else if (y < height * 0.325) {
+                    if (x < width * 0.3) {
+                        rightarmOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "rightarm";
+                    } else if (x < width * 0.7) {
+                        chestOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "chest";
+                    } else {
+                        leftarmOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "leftarm";
+                    }
+                } else if (y < height * 0.425) {
+                    stomachOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "stomach";
+                } else {
+                    if (x < width * 0.35) {
+                        rightwristOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "rightwrist";
+                    } else if (x < width * 0.65) {
+                        coreOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "core";
+                    } else {
+                        leftwristOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "leftwrist";
+                    }
+                }
+            }
+            // For Lower Body
+            else {
+                if (y < height * 0.75) {
+                    if (x < width * 0.5) {
+                        rightlegOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "rightleg";
+                    } else {
+                        leftlegOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "leftleg";
+                    }
+                } else {
+                    if (x < width * 0.5) {
+                        rightankleOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "rightankle";
+                    } else {
+                        leftankleOverlay.setVisibility(View.VISIBLE);
+                        selectedPartName = "leftankle";
+                    }
+                }
+            }
+
+        } else {
+            // Touch Handling for Back Body View
+
+            // For Upper Back Body
+            if (y < height * 0.5) {
+                if (y < height * 0.125) {
+                    backheadOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "backhead";
+                } else if (y < height * 0.25) {
+                    backupperOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "backupper";
+                } else if (y < height * 0.375) {
+                    backmidOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "backmid";
+                } else {
+                    backlowerOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "backlower";
+                }
+            }
+            // For Lower Back Body
+            else if (y < height * 0.75) {
+                if (y < height * 0.625) { // This condition is added to handle the bum area.
+                    bumOverlay.setVisibility(View.VISIBLE);
+                    selectedPartName = "bum";
+                } else if (x < width * 0.5) {
+                    backleftlegOverlay.setVisibility(View.VISIBLE); // Made correction here
+                    selectedPartName = "backleftleg";
+                } else {
+                    backrightlegOverlay.setVisibility(View.VISIBLE); // Made correction here
+                    selectedPartName = "backrightleg";
+                }
+            } else {
+                if (x < width * 0.5) {
+                    leftheelOverlay.setVisibility(View.VISIBLE); // Corrected the heel logic
+                    selectedPartName = "leftheel";
+                } else {
+                    rightheelOverlay.setVisibility(View.VISIBLE); // Corrected the heel logic
+                    selectedPartName = "rightheel";
+                }
+            }
+        }
         progressIcon.setVisibility(View.VISIBLE);
+        switchViewButton.setVisibility(View.INVISIBLE);
+        isBodyPartSelected = true;
     }
-
-
-
 }

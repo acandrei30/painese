@@ -1,43 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
-    android:background="#F3F3F3">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/phoneVibratingImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Phone Vibrating Image" />
+    <!-- Lottie Animation for background -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_fileName="wave.json"
+        android:scaleType="fitXY"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your phone will\nstart vibrating, place\nit on where you feel\nthe pain"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PainEase uses 174hertz Solfeggio frequency both audio and vibrational"
-        android:textAlignment="center"
-        android:layout_marginBottom="16dp" />
+        <!-- Lottie Animation for phone.json -->
 
-    <!-- Next Icon -->
-    <ImageView
-        android:id="@+id/toStartSessionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/progress_icon_4"
-        android:clickable="true"
-        android:focusable="true"
-        android:contentDescription="Next" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/phoneLottieAnimationView"
+            android:layout_width="315dp"
+            android:layout_height="382dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="phone.json"
+            app:lottie_loop="true" />
 
-</LinearLayout>
+        <TextView
+            android:layout_width="315dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            android:text="Your phone will start vibrating, place it on where you feel the pain"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="253dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="PainEase uses 174hertz Solfeggio frequency both audio and vibrational"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+
+        <!-- Next Icon -->
+        <ImageView
+            android:id="@+id/toStartSessionButton"
+            android:layout_width="106dp"
+            android:layout_height="83dp"
+            android:clickable="true"
+            android:contentDescription="Next"
+            android:focusable="true"
+            android:src="@drawable/progress_icon_4" />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -18,13 +18,7 @@ public class HeadphonesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_headphones);
 
         nextIconImageView = findViewById(R.id.nextIconImageView); // Updated ID
-        headphonesImageView = findViewById(R.id.headphonesImageView);
 
-        // Load the GIF using Glide
-        Glide.with(this)
-                .asGif()
-                .load(R.drawable.headphones)
-                .into(headphonesImageView);
 
         // Setting click listener on the ImageView
         nextIconImageView.setOnClickListener(new View.OnClickListener() {

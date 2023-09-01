@@ -31,7 +31,8 @@
         <activity android:name=".PainLevelActivity" android:exported="false"></activity>
         <activity android:name=".HeadphonesActivity" android:exported="false"></activity>
         <activity android:name=".PhoneVibratingActivity" android:exported="false"></activity>
-        <activity android:name=".PainLocationMaleActivity" android:exported="false"></activity>
+        <activity android:name=".PainLocationActivityNew" android:exported="false"></activity>
+        <activity android:name=".PainLocationActivityMale" android:exported="false"></activity>
         <activity android:name=".EmotionalPhysicalAssociation" android:exported="false"></activity>
     </application>
 
