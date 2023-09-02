@@ -44,18 +44,20 @@
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:weightSum="4"> <!-- Set weight sum to 4 because there are 4 child views -->
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/stopButton"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Stop"
                 android:scaleType="centerInside"
@@ -69,8 +71,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingLeft="20dp"
@@ -78,8 +81,8 @@
 
             <ImageButton
                 android:id="@+id/playPauseButton"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Play/Pause"
                 android:scaleType="centerInside"
@@ -93,15 +96,16 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/restartButton"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Restart"
                 android:scaleType="centerInside"
@@ -113,5 +117,33 @@
                 android:text="Restart"
                 android:textColor="@color/white"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <ImageButton
+                android:id="@+id/vibrationButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Vibration Toggle"
+                android:scaleType="centerInside"
+                android:src="@drawable/vibration" />
+
+            <TextView
+                android:id="@+id/vibrationStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vibration"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
     </LinearLayout>
+
 </RelativeLayout>

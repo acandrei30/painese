@@ -2,13 +2,11 @@ package com.example.painease;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.widget.ImageButton;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +18,10 @@ public class StartSessionActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private TextView timerTextView;
     private ImageButton playPauseButton;
+    private ImageButton vibrationButton;
+    private TextView vibrationStatus;
     private boolean isPaused = false;
+    private boolean isVibrating = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,6 @@ public class StartSessionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_session);
 
         timerTextView = findViewById(R.id.timerTextView);
-
 
         // Setup media player
         mediaPlayer = MediaPlayer.create(this, R.raw.meditation_audio);
@@ -41,6 +41,8 @@ public class StartSessionActivity extends AppCompatActivity {
         playPauseButton = findViewById(R.id.playPauseButton);
         ImageButton stopButton = findViewById(R.id.stopButton);
         ImageButton restartButton = findViewById(R.id.restartButton);
+        vibrationButton = findViewById(R.id.vibrationButton);
+        vibrationStatus = findViewById(R.id.vibrationStatus);
 
         playPauseButton.setOnClickListener(v -> {
             if (isPaused) {
@@ -53,9 +55,13 @@ public class StartSessionActivity extends AppCompatActivity {
         stopButton.setOnClickListener(v -> stopSession());
         restartButton.setOnClickListener(v -> restartSession());
 
-        // Volume control
-        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-
+        vibrationButton.setOnClickListener(v -> {
+            if (isVibrating) {
+                stopVibration();
+            } else {
+                startVibration();
+            }
+        });
 
         // Start the session by default
         startSession();
@@ -64,8 +70,9 @@ public class StartSessionActivity extends AppCompatActivity {
     private void startSession() {
         mediaPlayer.start();
 
-        if (vibrator != null) {
-            long[] pattern = {0, 5714, 5714};  // Vibrate at 174Hz
+        long[] pattern = {0, 1000};  // Continuous vibration
+
+        if (vibrator != null && isVibrating) {
             vibrator.vibrate(pattern, 0);
         }
 
@@ -78,7 +85,7 @@ public class StartSessionActivity extends AppCompatActivity {
             }
         }.start();
 
-        playPauseButton.setImageResource(R.drawable.pause);  // Update to pause icon as music starts playing
+        playPauseButton.setImageResource(R.drawable.pause);
     }
 
     private void pauseSession() {
@@ -90,18 +97,20 @@ public class StartSessionActivity extends AppCompatActivity {
         }
         countDownTimer.cancel();
         isPaused = true;
-        playPauseButton.setImageResource(R.drawable.play);  // Update to play icon
+        playPauseButton.setImageResource(R.drawable.play);
     }
 
     private void resumeSession() {
         mediaPlayer.start();
-        if (vibrator != null) {
-            long[] pattern = {0, 5714, 5714};
+
+        long[] pattern = {0, 1000};  // Continuous vibration
+
+        if (vibrator != null && isVibrating) {
             vibrator.vibrate(pattern, 0);
         }
         countDownTimer.start();
         isPaused = false;
-        playPauseButton.setImageResource(R.drawable.pause);  // Update to pause icon
+        playPauseButton.setImageResource(R.drawable.pause);
     }
 
     private void restartSession() {
@@ -132,5 +141,23 @@ public class StartSessionActivity extends AppCompatActivity {
         Intent feedbackIntent = new Intent(StartSessionActivity.this, FeedbackActivity.class);
         startActivity(feedbackIntent);
         finish();
+    }
+
+    private void startVibration() {
+        long[] pattern = {0, 1000};  // Continuous vibration
+
+        if (vibrator != null) {
+            vibrator.vibrate(pattern, 0);
+        }
+        vibrationStatus.setText("Vibration");
+        isVibrating = true;
+    }
+
+    private void stopVibration() {
+        if (vibrator != null) {
+            vibrator.cancel();
+        }
+        vibrationStatus.setText("Vibration");
+        isVibrating = false;
     }
 }

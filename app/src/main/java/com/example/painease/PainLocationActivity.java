@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
+import android.util.Log;
 
 public class PainLocationActivity extends AppCompatActivity {
 
@@ -32,9 +33,11 @@ public class PainLocationActivity extends AppCompatActivity {
         progressIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("PainLocationActivity", "Sending selected part to HeadphonesActivity: " + selectedPartName);
                 Intent intent = new Intent(PainLocationActivity.this, HeadphonesActivity.class);
                 intent.putExtra("selectedPart", selectedPartName);
                 startActivity(intent);
+
             }
         });
 
@@ -156,33 +159,42 @@ public class PainLocationActivity extends AppCompatActivity {
                 if (y < height * 0.125) {
                     headOverlay.setVisibility(View.VISIBLE);
                     selectedPartName = "head";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 } else if (y < height * 0.25) {
                     throatOverlay.setVisibility(View.VISIBLE);
                     selectedPartName = "throat";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 } else if (y < height * 0.325) {
                     if (x < width * 0.3) {
                         rightarmOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "rightarm";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     } else if (x < width * 0.7) {
                         chestOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "chest";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     } else {
                         leftarmOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "leftarm";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     }
                 } else if (y < height * 0.425) {
                     stomachOverlay.setVisibility(View.VISIBLE);
                     selectedPartName = "stomach";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 } else {
                     if (x < width * 0.35) {
                         rightwristOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "rightwrist";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     } else if (x < width * 0.65) {
                         coreOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "core";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     } else {
                         leftwristOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "leftwrist";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     }
                 }
             }
@@ -192,17 +204,21 @@ public class PainLocationActivity extends AppCompatActivity {
                     if (x < width * 0.5) {
                         rightlegOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "rightleg";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     } else {
                         leftlegOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "leftleg";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     }
                 } else {
                     if (x < width * 0.5) {
                         rightankleOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "rightankle";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     } else {
                         leftankleOverlay.setVisibility(View.VISIBLE);
                         selectedPartName = "leftankle";
+                        Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                     }
                 }
             }
@@ -215,15 +231,19 @@ public class PainLocationActivity extends AppCompatActivity {
                 if (y < height * 0.125) {
                     backheadOverlay.setVisibility(View.VISIBLE);
                     selectedPartName = "backhead";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 } else if (y < height * 0.25) {
                     backupperOverlay.setVisibility(View.VISIBLE);
                     selectedPartName = "backupper";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 } else if (y < height * 0.375) {
                     backmidOverlay.setVisibility(View.VISIBLE);
                     selectedPartName = "backmid";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 } else {
                     backlowerOverlay.setVisibility(View.VISIBLE);
                     selectedPartName = "backlower";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 }
             }
             // For Lower Back Body
@@ -231,20 +251,25 @@ public class PainLocationActivity extends AppCompatActivity {
                 if (y < height * 0.625) { // This condition is added to handle the bum area.
                     bumOverlay.setVisibility(View.VISIBLE);
                     selectedPartName = "bum";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 } else if (x < width * 0.5) {
                     backleftlegOverlay.setVisibility(View.VISIBLE); // Made correction here
                     selectedPartName = "backleftleg";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 } else {
                     backrightlegOverlay.setVisibility(View.VISIBLE); // Made correction here
                     selectedPartName = "backrightleg";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 }
             } else {
                 if (x < width * 0.5) {
                     leftheelOverlay.setVisibility(View.VISIBLE); // Corrected the heel logic
                     selectedPartName = "leftheel";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 } else {
                     rightheelOverlay.setVisibility(View.VISIBLE); // Corrected the heel logic
                     selectedPartName = "rightheel";
+                    Log.d("PainLocationActivity", "Selected body part: " + selectedPartName);
                 }
             }
         }

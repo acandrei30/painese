@@ -22,12 +22,28 @@
         android:padding="16dp"
         android:gravity="center">
 
-        <ImageView
-            android:id="@+id/gifImageView"
+        <FrameLayout
             android:layout_width="372dp"
             android:layout_height="282dp"
-            android:layout_weight="1"
-            android:contentDescription="GIF Image" />
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/pngImageView"
+                android:layout_width="298dp"
+                android:layout_height="226dp"
+                android:contentDescription="Image"
+                android:src="@drawable/instruction_test"
+                android:layout_gravity="center"/> <!-- This will center the image in the FrameLayout -->
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottiePainAnimationView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_fileName="pain2.json"/>
+
+        </FrameLayout>
 
         <!-- Instructional Text -->
         <TextView
@@ -35,7 +51,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="Focus on the pain throughout the session"
-
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="24sp"
@@ -52,11 +67,12 @@
         <!-- Next Icon -->
         <ImageView
             android:id="@+id/toPhoneVibratingButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/progress_icon_3"
             android:clickable="true"
             android:focusable="true"
+
             android:contentDescription="Next" />
 
     </LinearLayout>

@@ -15,6 +15,7 @@
         android:scaleType="fitXY"/>
 
     <LinearLayout
+        android:id="@+id/mainLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -22,7 +23,6 @@
         android:padding="16dp">
 
         <!-- Lottie Animation for phone.json -->
-
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/phoneLottieAnimationView"
             android:layout_width="315dp"
@@ -51,16 +51,16 @@
             android:textAlignment="center"
             android:textColor="@android:color/white" />
 
-        <!-- Next Icon -->
-        <ImageView
-            android:id="@+id/toStartSessionButton"
-            android:layout_width="106dp"
-            android:layout_height="83dp"
-            android:clickable="true"
-            android:contentDescription="Next"
-            android:focusable="true"
-            android:src="@drawable/progress_icon_4" />
+        <!-- Counter TextView (will be dynamically populated) -->
+        <TextView
+            android:id="@+id/countdownTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text=""
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
-
 </FrameLayout>
