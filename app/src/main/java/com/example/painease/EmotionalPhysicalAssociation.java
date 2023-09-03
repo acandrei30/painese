@@ -3,7 +3,7 @@ package com.example.painease;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EmotionalPhysicalAssociation extends AppCompatActivity {
@@ -13,9 +13,9 @@ public class EmotionalPhysicalAssociation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emotional_physical_association);
 
-        Button okButton = findViewById(R.id.okButton);
+        ImageView progressIconImageView = findViewById(R.id.progressIconImageView);
 
-        okButton.setOnClickListener(new View.OnClickListener() {
+        progressIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navigateToPainLocation();
