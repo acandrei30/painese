@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".InstructionsActivity" android:exported="false"></activity>
+        <activity android:name=".InstructionsActivity" android:exported="false"  android:screenOrientation="portrait"></activity>
         <activity android:name=".StartSessionActivity" android:exported="false"></activity>
         <activity android:name=".FeedbackActivity" android:exported="false"></activity>
         <activity android:name=".PainLevelActivity" android:exported="false"></activity>
@@ -34,6 +34,7 @@
         <activity android:name=".PhoneVibratingActivity" android:exported="false"></activity>
         <activity android:name=".PainLocationActivityMale" android:exported="false"></activity>
         <activity android:name=".EmotionalPhysicalAssociation" android:exported="false"></activity>
+
     </application>
 
 </manifest>
