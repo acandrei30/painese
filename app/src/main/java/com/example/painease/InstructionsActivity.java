@@ -16,6 +16,7 @@ public class InstructionsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String selectedVoice = getIntent().getStringExtra("selectedVoice");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructions);
 
@@ -179,13 +180,16 @@ public class InstructionsActivity extends AppCompatActivity {
         pngImageView.setImageResource(imageResource);
 
         // Listener for the ImageView to navigate to the PhoneVibratingActivity
+
         toPhoneVibratingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InstructionsActivity.this, PhoneVibratingActivity.class);
+                intent.putExtra("selectedVoice", selectedVoice); // Forwarding the voice name
                 startActivity(intent);
             }
         });
+
 
         // Configure the Lottie animation for pain2.json
         lottiePainAnimationView.setAlpha(0.5f); // 70% transparency (0.3 opaque)

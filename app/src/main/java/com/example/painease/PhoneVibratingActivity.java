@@ -14,11 +14,14 @@ public class PhoneVibratingActivity extends AppCompatActivity {
 
     private TextView countdownTextView;
     private CountDownTimer countDownTimer;
+    private String selectedVoice; // Declare the variable here
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_vibrating);
+
+        selectedVoice = getIntent().getStringExtra("selectedVoice"); // Retrieve the voice selection
 
         countdownTextView = new TextView(this); // Create a new TextView programmatically
         countdownTextView.setLayoutParams(new LinearLayout.LayoutParams(
@@ -45,8 +48,10 @@ public class PhoneVibratingActivity extends AppCompatActivity {
 
             public void onFinish() {
                 Intent intent = new Intent(PhoneVibratingActivity.this, StartSessionActivity.class);
+                intent.putExtra("selectedVoice", selectedVoice); // Forwarding the voice name
                 startActivity(intent);
             }
+
         }.start();
     }
 
