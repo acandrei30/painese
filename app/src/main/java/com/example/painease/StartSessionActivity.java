@@ -188,13 +188,13 @@ public class StartSessionActivity extends AppCompatActivity {
                 if (vibrator != null) {
                     vibrator.vibrate(pattern2, 0);
                 }
-                new Handler().postDelayed(() -> stopVibration(), 189000);
+                new Handler().postDelayed(() -> stopVibration(), 206000);
                 break;
             case 3:
                 if (vibrator != null) {
                     vibrator.vibrate(pattern3, 0);
                 }
-                new Handler().postDelayed(() -> stopVibration(), 99000); // From 7:18 to 8:57 is 1 min 39 seconds or 99000 milliseconds.
+                new Handler().postDelayed(() -> stopVibration(), 537000); // From 7:18 to 8:57 is 1 min 39 seconds or 99000 milliseconds.
                 break;
             default:
                 if (vibrator != null) {

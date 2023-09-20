@@ -36,7 +36,6 @@
         android:layout_marginBottom="16dp"
         android:textSize="40sp"/>
 
-
     <LinearLayout
         android:id="@+id/controlLayout"
         android:layout_width="match_parent"
@@ -45,8 +44,9 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_marginBottom="16dp"
-        android:weightSum="4"> <!-- Set weight sum to 4 because there are 4 child views -->
+        android:weightSum="5">
 
+        <!-- Stop Section -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -70,14 +70,13 @@
                 android:textColor="@color/white"/>
         </LinearLayout>
 
+        <!-- Play/Pause Section -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/playPauseButton"
@@ -95,6 +94,7 @@
                 android:textColor="@color/white"/>
         </LinearLayout>
 
+        <!-- Restart Section -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -118,14 +118,37 @@
                 android:textColor="@color/white"/>
         </LinearLayout>
 
+        <!-- Voice Toggle Section -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/voiceToggleButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Voice Toggle"
+                android:scaleType="centerInside"
+                android:src="@drawable/voiceon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voice"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <!-- Vibration Section -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/vibrationButton"
