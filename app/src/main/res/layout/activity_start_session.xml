@@ -6,6 +6,7 @@
 
     <!-- Lottie Background Animation -->
 
+
     <!-- Lottie Abstract Animation -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
@@ -16,6 +17,7 @@
         app:lottie_fileName="wave2.json"
         app:lottie_loop="true" />
 
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/phoneLottieAnimationView"
         android:layout_width="wrap_content"
@@ -24,6 +26,7 @@
         app:lottie_autoPlay="true"
         app:lottie_fileName="abstract.json"
         app:lottie_loop="true" />
+
 
     <TextView
         android:id="@+id/timerTextView"

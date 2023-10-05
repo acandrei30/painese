@@ -115,7 +115,7 @@ public class InstructionsActivity extends AppCompatActivity {
                 imageResource = R.drawable.male_close_chest;
                 break;
             case "maleleftarm":
-                imageResource = R.drawable.male_close_chest;
+                imageResource = R.drawable.male_left_arm;
                 break;
             case "malestomach":
                 imageResource = R.drawable.male_close_stomach;
@@ -173,7 +173,7 @@ public class InstructionsActivity extends AppCompatActivity {
                 break;
 
             default:
-                imageResource = R.drawable.instruction_test; // This is your default image.
+                imageResource = R.drawable.instructions_test; // This is your default image.
                 break;
         }
 

@@ -17,15 +17,60 @@
         android:scaleType="fitXY" />
 
     <TextView
-        android:layout_width="282dp"
+        android:id="@+id/instructionsTextView"
+    android:layout_width="282dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="16dp"
+    android:text="Was this session efficient in releasing your pain?"
+    android:textAlignment="center"
+    android:textColor="@android:color/white"
+    android:layout_marginBottom="100dp"
+    android:textSize="24sp"
+    android:textStyle="bold" />
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:text="Remember, pain is just a way in which the body communicates imbalances"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/yesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:backgroundTint="#1B4160"
+            android:paddingLeft="24dp"
+            android:paddingTop="10dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="10dp"
+            android:radius="16dp"
+            android:layout_margin="8dp" />
+
+
+
+        <Button
+            android:id="@+id/noButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:backgroundTint="#1B4160"
+            android:paddingLeft="24dp"
+            android:paddingTop="10dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="10dp"
+            android:radius="16dp"
+            android:layout_margin="8dp" />
+
+    </LinearLayout>
 
     <!-- Icons Container -->
     <LinearLayout
@@ -55,5 +100,4 @@
             android:src="@drawable/done_icon" />
 
     </LinearLayout>
-
 </FrameLayout>

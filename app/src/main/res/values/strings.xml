@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">painease</string>
+    <string name="app_name">PainEase</string>
     <string name="switch_view_button_description">Switch view between front and back</string>
     <string name="stop_button_description">Stop button</string>
     <string name="play_pause_button_description">Play or Pause button</string>

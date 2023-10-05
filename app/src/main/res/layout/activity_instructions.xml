@@ -32,7 +32,7 @@
                 android:layout_width="298dp"
                 android:layout_height="226dp"
                 android:contentDescription="Image"
-                android:src="@drawable/instruction_test"
+                android:src="@drawable/instructions_test"
                 android:layout_gravity="center"/> <!-- This will center the image in the FrameLayout -->
 
             <com.airbnb.lottie.LottieAnimationView
