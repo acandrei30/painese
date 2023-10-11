@@ -1,5 +1,5 @@
 package com.example.painease;
-
+import android.widget.TextView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +14,26 @@ public class EmotionalPhysicalAssociation extends AppCompatActivity {
         setContentView(R.layout.activity_emotional_physical_association);
 
         ImageView progressIconImageView = findViewById(R.id.progressIconImageView);
+        TextView instructionTextView = findViewById(R.id.instruction); // Added this line
 
+        String painType = getIntent().getStringExtra("painType"); // Retrieve pain type
+        if (painType != null) {
+            switch (painType) {
+                case "Anxiety":
+                    instructionTextView.setText("Close your eyes and focus inwardly. Where in your body do you sense the weight of your anxiety?");
+                    break;
+                case "Stress":
+                    instructionTextView.setText("Close your eyes and focus inwardly. Where in your body do you sense the weight of your stress?");
+                    break;
+                case "Anger":
+                    instructionTextView.setText("Close your eyes and focus inwardly. Where in your body do you sense the weight of your anger?");
+                    break;
+                default:
+                    // Default case (Emotional pain or other types)
+                    instructionTextView.setText("Close your eyes and focus inwardly. Where in your body do you sense the weight of your emotional pain?");
+                    break;
+            }
+        }
         progressIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

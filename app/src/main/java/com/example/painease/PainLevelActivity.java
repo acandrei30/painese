@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.TextAppearanceSpan;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,12 +16,20 @@ public class PainLevelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pain_level);
 
+        // Get the pain type from the intent
+        String painType = getIntent().getStringExtra("painType");
+
+        // Update the title based on pain type
+        TextView titleText = findViewById(R.id.titleText);
+        if (painType != null && !painType.isEmpty()) {
+            titleText.setText("What is your current " + painType.toLowerCase() + " level?");
+        }
+
         configureButton((Button) findViewById(R.id.minimalButton), "Minimal\nI barely notice it");
         configureButton((Button) findViewById(R.id.lightButton), "Light\nI can feel it lightly");
         configureButton((Button) findViewById(R.id.moderateButton), "Moderate\nIt's uncomfortable");
         configureButton((Button) findViewById(R.id.intenseButton), "Intense\nIt's difficult to manage");
-        configureButton((Button) findViewById(R.id.severeButton), "Severe\nI am bedridden");
-
+        configureButton((Button) findViewById(R.id.severeButton), "Severe\nI cannot handle it");
     }
 
     private void configureButton(Button button, String text) {

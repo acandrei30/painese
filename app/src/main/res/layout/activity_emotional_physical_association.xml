@@ -34,7 +34,7 @@
         android:gravity="center"
         android:text="Close your eyes and focus inwardly. Where in your body do you sense the weight of your emotional pain?"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -46,9 +46,24 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
-        android:text="Emotions can mirror tangible sensations: a heavy heart, a knotted stomach, or a tense forehead. Identify that feeling within you."
+        android:text="Emotions can mirror tangible sensations: a heavy heart, a knotted stomach, or a tense forehead. "
         android:textColor="@android:color/white"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/subtitletwo"
+        android:layout_width="362dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/instruction"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-light"
+        android:text="Throughout this session we will call this feeling 'Pain' "
+        android:textColor="@android:color/white"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
 
     <!-- New ImageView -->
     <ImageView

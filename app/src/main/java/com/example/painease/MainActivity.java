@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // Get the pain type passed from the PainLevelActivity
         String painType = getIntent().getStringExtra("painType");
 
-        if (painType.equals("Emotional")) {
+        if (painType.equals("Emotional pain") || painType.equals("Anxiety") || painType.equals("Stress") || painType.equals("Anger")) {
             intent = new Intent(MainActivity.this, EmotionalPhysicalAssociation.class);
         } else {
             if (gender.equals("male")) {
@@ -49,9 +49,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // Pass along the pain level and the gender
-        intent.putExtra("PAIN_LEVEL", getIntent().getStringExtra("PAIN_LEVEL"));
+        // Transfer all extras from the current intent to the new intent
+        if (getIntent().getExtras() != null) {
+            intent.putExtras(getIntent().getExtras());
+        }
+
+        // Now, add/override the gender extra
         intent.putExtra("GENDER", gender);
+
         startActivity(intent);
     }
 }
