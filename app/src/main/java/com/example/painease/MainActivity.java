@@ -1,6 +1,7 @@
 package com.example.painease;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
         maleButton = findViewById(R.id.maleButton);
         femaleButton = findViewById(R.id.femaleButton);
 
+        // Resize icons inside buttons
+        resizeButtonDrawable(maleButton, R.drawable.male);
+        resizeButtonDrawable(femaleButton, R.drawable.female);
+
         maleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +36,19 @@ public class MainActivity extends AppCompatActivity {
                 navigateBasedOnPainType("female");
             }
         });
+    }
+
+    private void resizeButtonDrawable(Button button, int drawableResId) {
+        // Get the drawable
+        Drawable drawable = getResources().getDrawable(drawableResId);
+
+        // Resize the drawable
+        int newWidth = drawable.getIntrinsicWidth() / 2; // Change the divisor to resize as needed
+        int newHeight = drawable.getIntrinsicHeight() / 2; // Change the divisor to resize as needed
+        drawable.setBounds(0, 0, newWidth, newHeight);
+
+        // Set the drawable back to the button
+        button.setCompoundDrawables(drawable, null, null, null);
     }
 
     private void navigateBasedOnPainType(String gender) {

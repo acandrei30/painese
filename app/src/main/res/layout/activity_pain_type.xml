@@ -4,53 +4,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Lottie Animation View for Background -->
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
+    <!-- Background Image View -->
+    <ImageView
+        android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_fileName="wave.json"
-        android:scaleType="fitXY"/>
+        android:src="@drawable/background"
+        android:scaleType="fitXY" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingTop="24dp">
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingTop="50dp">
 
             <!-- Title Text -->
+
+            <!-- Button Physical pain -->
             <TextView
                 android:id="@+id/titleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
                 android:text="What do you want relief from?"
-                android:textSize="24sp"
                 android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:layout_marginBottom="32dp" />
 
-            <!-- Button Physical pain -->
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
             <Button
                 android:id="@+id/buttonPhysical"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="Physical pain"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:drawableLeft="@drawable/ppain"
-                android:drawablePadding="8dp" />
+                android:drawablePadding="8dp"
+                android:elevation="4dp"
+                android:translationZ="4dp"
+                android:backgroundTint="@color/button_background_color"
+                android:background="@drawable/button_background_round" />
 
             <!-- Button Emotional pain -->
             <Button
@@ -58,15 +62,18 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
+                android:backgroundTint="#5B4B9F"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="Emotional pain"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:drawableLeft="@drawable/epain"
-                android:drawablePadding="8dp" />
+                android:drawablePadding="8dp"
+                android:elevation="4dp"
+                android:translationZ="4dp"
+                android:background="@drawable/button_background_round"/>
 
             <!-- Button Anxiety -->
             <Button
@@ -74,15 +81,18 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
+                android:backgroundTint="#5B4B9F"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="Anxiety"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:drawableLeft="@drawable/anxiety"
-                android:drawablePadding="8dp" />
+                android:drawablePadding="8dp"
+                android:elevation="4dp"
+                android:translationZ="4dp"
+                android:background="@drawable/button_background_round"/>
 
             <!-- Button Overall stress -->
             <Button
@@ -90,15 +100,18 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
+                android:backgroundTint="#5B4B9F"
+                android:drawableLeft="@drawable/stress"
+                android:drawablePadding="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="Overall stress"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:drawableLeft="@drawable/stress"
-                android:drawablePadding="8dp" />
+                android:elevation="4dp"
+                android:translationZ="4dp"
+                android:background="@drawable/button_background_round"/>
 
             <!-- Button Anger -->
             <Button
@@ -106,15 +119,18 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
+                android:backgroundTint="#5B4B9F"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:text="Anger"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:drawableLeft="@drawable/anger"
-                android:drawablePadding="8dp" />
+                android:drawablePadding="8dp"
+                android:elevation="4dp"
+                android:translationZ="4dp"
+                android:background="@drawable/button_background_round"/>
 
             <!-- Skip Instructions Layout -->
             <LinearLayout
@@ -130,10 +146,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Skip instructions"
-                    android:textColor="#f1592a"
+                    android:textColor="#ffff"
                     android:clickable="true"
                     android:focusable="true"
-                    android:textSize="21sp" />
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:id="@+id/skipIcon"

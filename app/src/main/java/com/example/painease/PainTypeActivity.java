@@ -1,6 +1,7 @@
 package com.example.painease;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -8,7 +9,9 @@ import android.text.style.TextAppearanceSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.airbnb.lottie.LottieAnimationView;
 
 public class PainTypeActivity extends AppCompatActivity {
@@ -18,8 +21,13 @@ public class PainTypeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pain_type);
 
-        LottieAnimationView animationView = findViewById(R.id.lottieAnimationView);
-        animationView.playAnimation();
+
+        // Resize icons in the buttons
+        resizeButtonIcon((Button) findViewById(R.id.buttonPhysical), R.drawable.ppain);
+        resizeButtonIcon((Button) findViewById(R.id.buttonEmotional), R.drawable.epain);
+        resizeButtonIcon((Button) findViewById(R.id.buttonAnxiety), R.drawable.anxiety);
+        resizeButtonIcon((Button) findViewById(R.id.buttonStress), R.drawable.stress);
+        resizeButtonIcon((Button) findViewById(R.id.buttonAnger), R.drawable.anger);
 
         // Configure the buttons with subtitles and their respective actions
         configureGeneralButton((Button) findViewById(R.id.buttonPhysical), "Physical pain\nA bodily sensation like 'headache'");
@@ -34,6 +42,16 @@ public class PainTypeActivity extends AppCompatActivity {
             Intent intent = new Intent(PainTypeActivity.this, VoiceSelectionActivityDirect.class);
             startActivity(intent);
         });
+    }
+
+    private void resizeButtonIcon(Button button, int drawableResId) {
+        Drawable drawable = getResources().getDrawable(drawableResId);
+
+        int newWidth = (int) (drawable.getIntrinsicWidth() * (1.4 / 3.0)); // resizing to 66.67% of original size
+        int newHeight = (int) (drawable.getIntrinsicHeight() * (1.4 / 3.0)); // resizing to 66.67% of original size
+        drawable.setBounds(0, 0, newWidth, newHeight);
+
+        button.setCompoundDrawables(drawable, null, null, null);
     }
 
     private void configureGeneralButton(Button button, String text) {
@@ -67,7 +85,3 @@ public class PainTypeActivity extends AppCompatActivity {
         }
     }
 }
-
-
-
-

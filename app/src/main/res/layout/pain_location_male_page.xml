@@ -23,7 +23,7 @@
             android:id="@+id/instructionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tap on the body part where\nyou feel the pain"
+            android:text="Tap on the body part where\nyou feel the pain the most"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="24sp"
