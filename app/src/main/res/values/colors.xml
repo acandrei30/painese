@@ -11,4 +11,7 @@
     <color name="orange_primary_dark">#0D1E34</color>
     <color name="orange_accent">#FFD700</color>
     <color name="button_background_color">#5C4C9F</color>
+    <color name="button_background_color_light">#864E9F</color>
+    <color name="button_background_action">#EA4A3E</color>
+    EA4A3E
 </resources>

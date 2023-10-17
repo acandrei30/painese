@@ -5,13 +5,11 @@
     android:layout_height="match_parent">
 
     <!-- Lottie Animation for wave background -->
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
+    <ImageView
+        android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_fileName="wave.json"
+        android:src="@drawable/background"
         android:scaleType="fitXY" />
 
     <com.airbnb.lottie.LottieAnimationView
@@ -22,47 +20,35 @@
         android:layout_centerHorizontal="true"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_fileName="pain.json" />
+        app:lottie_fileName="woman_meditation.json" />
 
     <TextView
         android:id="@+id/instruction"
-        android:layout_width="358dp"
+        android:layout_width="305dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="@font/montserrat_regular"
         android:gravity="center"
         android:text="Close your eyes and focus inwardly. Where in your body do you sense the weight of your emotional pain?"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/subtitle"
-        android:layout_width="362dp"
-        android:layout_height="wrap_content"
+        android:layout_width="267dp"
+        android:layout_height="84dp"
         android:layout_below="@+id/instruction"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="@font/montserrat_regular"
         android:gravity="center"
         android:text="Emotions can mirror tangible sensations: a heavy heart, a knotted stomach, or a tense forehead. "
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/subtitletwo"
-        android:layout_width="362dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/instruction"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="88dp"
-        android:gravity="center"
-        android:fontFamily="sans-serif-light"
-        android:text="Throughout this session we will call this feeling 'Pain' "
-        android:textColor="@android:color/white"
-        android:textSize="18dp"
-        android:textStyle="bold" />
+
 
 
     <!-- New ImageView -->

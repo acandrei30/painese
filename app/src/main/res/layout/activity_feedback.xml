@@ -7,13 +7,11 @@
     android:orientation="vertical">
 
     <!-- Lottie Animation for background -->
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
+    <ImageView
+        android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_fileName="wave.json"
+        android:src="@drawable/background"
         android:scaleType="fitXY" />
 
     <TextView

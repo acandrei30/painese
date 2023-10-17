@@ -9,9 +9,9 @@ import android.text.style.TextAppearanceSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import androidx.core.content.res.ResourcesCompat;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.graphics.Typeface;
 import com.airbnb.lottie.LottieAnimationView;
 
 public class PainTypeActivity extends AppCompatActivity {
@@ -21,6 +21,22 @@ public class PainTypeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pain_type);
 
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.montserrat_regular);
+
+        Button buttonPhysical = findViewById(R.id.buttonPhysical);
+        buttonPhysical.setTypeface(typeface);
+
+        Button buttonEmotional = findViewById(R.id.buttonEmotional);
+        buttonEmotional.setTypeface(typeface);
+
+        Button buttonAnxiety = findViewById(R.id.buttonAnxiety);
+        buttonAnxiety.setTypeface(typeface);
+
+        Button buttonStress = findViewById(R.id.buttonStress);
+        buttonStress.setTypeface(typeface);
+
+        Button buttonAnger = findViewById(R.id.buttonAnger);
+        buttonAnger.setTypeface(typeface);
 
         // Resize icons in the buttons
         resizeButtonIcon((Button) findViewById(R.id.buttonPhysical), R.drawable.ppain);

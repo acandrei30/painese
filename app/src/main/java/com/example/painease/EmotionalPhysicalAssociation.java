@@ -1,4 +1,5 @@
 package com.example.painease;
+
 import android.widget.TextView;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,20 +38,14 @@ public class EmotionalPhysicalAssociation extends AppCompatActivity {
         progressIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToPainLocation();
+                navigateToCallitpainActivity();
             }
         });
     }
 
-    private void navigateToPainLocation() {
+    private void navigateToCallitpainActivity() {
         String gender = getIntent().getStringExtra("GENDER");
-        Intent intent;
-
-        if (gender.equals("male")) {
-            intent = new Intent(EmotionalPhysicalAssociation.this, PainLocationActivityMale.class);
-        } else {
-            intent = new Intent(EmotionalPhysicalAssociation.this, PainLocationActivity.class);
-        }
+        Intent intent = new Intent(EmotionalPhysicalAssociation.this, CallitpainActivity.class);
 
         // If there are more data to be passed along, add them here
         intent.putExtra("PAIN_LEVEL", getIntent().getStringExtra("PAIN_LEVEL"));

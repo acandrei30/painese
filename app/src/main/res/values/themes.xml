@@ -7,7 +7,7 @@
     </style>
 
     <style name="ButtonSubtitleTextAppearance" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
     <!-- Base application theme. -->
@@ -19,7 +19,9 @@
         <!-- Define the default button style in your theme -->
         <item name="materialButtonStyle">@style/PainLevelButton</item>
     </style>
-
+    <style name="MontserratText">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
     <!-- Pain Level Button Style -->
     <style name="PainLevelButton" >
         <item name="android:textAlignment">viewStart</item>

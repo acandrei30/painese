@@ -7,24 +7,19 @@
     <!-- Lottie Background Animation -->
 
 
-    <!-- Lottie Abstract Animation -->
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
-        android:layout_width="395dp"
-        android:layout_height="898dp"
-        android:scaleType="fitXY"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="wave2.json"
-        app:lottie_loop="true" />
-
-
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="fitXY" />
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/phoneLottieAnimationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="abstract.json"
+        app:lottie_fileName="wave_white.json"
         app:lottie_loop="true" />
 
 

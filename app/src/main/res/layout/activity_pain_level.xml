@@ -4,6 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="fitXY" />
+
     <!-- Lottie Animation View for Background -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
@@ -11,8 +19,9 @@
         android:layout_height="match_parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_fileName="wave.json"
+        app:lottie_fileName="lottie_stars.json"
         android:scaleType="fitXY"/>
+    <!-- Lottie Animation View for Background -->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,8 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingTop="24dp">
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingTop="30dp">
 
             <!-- Title Text -->
             <TextView
@@ -32,11 +41,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:text="What is your current pain level?"
-                android:textSize="24sp"
+                android:text="What is your current\n pain level?"
+                android:textSize="18sp"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
-                android:layout_marginBottom="32dp" />
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:elevation="4dp"
+                android:translationZ="4dp"/>
 
             <!-- Minimal Pain Button -->
             <Button
@@ -44,7 +56,6 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
                 android:drawableLeft="@drawable/minimal"
                 android:contentDescription="Minimal pain button"
                 android:paddingTop="12dp"
@@ -53,7 +64,12 @@
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:drawablePadding="8dp" />
+                android:drawablePadding="8dp"
+                android:backgroundTint="@color/button_background_color"
+                android:background="@drawable/button_background_round"
+                android:fontFamily="@font/montserrat_regular"
+                android:elevation="4dp"
+                android:translationZ="4dp"/>
 
 
             <Button
@@ -61,7 +77,6 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
                 android:drawableLeft="@drawable/light"
                 android:contentDescription="Minimal pain button"
                 android:paddingTop="12dp"
@@ -69,13 +84,17 @@
                 android:text="I barely notice it"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:backgroundTint="@color/button_background_color"
+                android:background="@drawable/button_background_round"
+                android:fontFamily="@font/montserrat_regular"
+                android:elevation="4dp"
+                android:translationZ="4dp"/>
             <Button
                 android:id="@+id/moderateButton"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
                 android:drawableLeft="@drawable/moderate"
                 android:contentDescription="Minimal pain button"
                 android:paddingTop="12dp"
@@ -83,13 +102,17 @@
                 android:text="I barely notice it"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:backgroundTint="@color/button_background_color"
+                android:background="@drawable/button_background_round"
+                android:fontFamily="@font/montserrat_regular"
+                android:elevation="4dp"
+                android:translationZ="4dp"/>
             <Button
                 android:id="@+id/intenseButton"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
                 android:contentDescription="Minimal pain button"
                 android:drawableLeft="@drawable/intense"
                 android:paddingTop="12dp"
@@ -97,13 +120,17 @@
                 android:text="I barely notice it"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:backgroundTint="@color/button_background_color"
+                android:background="@drawable/button_background_round"
+                android:fontFamily="@font/montserrat_regular"
+                android:elevation="4dp"
+                android:translationZ="4dp"/>
             <Button
                 android:id="@+id/severeButton"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="#1B4160"
                 android:drawableLeft="@drawable/severe"
                 android:contentDescription="Minimal pain button"
                 android:paddingTop="12dp"
@@ -111,7 +138,12 @@
                 android:text="I barely notice it"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:backgroundTint="@color/button_background_color"
+                android:background="@drawable/button_background_round"
+                android:fontFamily="@font/montserrat_regular"
+                android:elevation="4dp"
+                android:translationZ="4dp"/>
 
         </LinearLayout>
     </ScrollView>

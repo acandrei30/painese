@@ -47,6 +47,7 @@
         <activity android:name=".VoiceSelectionActivity" android:exported="false"></activity>
         <activity android:name=".VoiceSelectionActivityDirect" android:exported="false"></activity>
         <activity android:name=".FeedbackFormActivity" android:exported="false"></activity>
+        <activity android:name=".CallitpainActivity" android:exported="false"></activity>
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/app_name"

@@ -1,66 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- Lottie Animation for background -->
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
+    <ImageView
+        android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_fileName="wave.json"
-        android:scaleType="fitXY"/>
+        android:src="@drawable/background"
+        android:scaleType="fitXY" />
 
-    <LinearLayout
-        android:id="@+id/mainLinearLayout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="16dp">
+        android:fillViewport="true">
 
-        <!-- Lottie Animation for phone.json -->
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/phoneLottieAnimationView"
-            android:layout_width="315dp"
-            android:layout_height="382dp"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="phone.json"
-            app:lottie_loop="true" />
-
-        <TextView
-            android:layout_width="315dp"
-            android:layout_height="105dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="12dp"
-            android:text="Your phone will start vibrating, place it on where you feel the pain"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="253dp"
+        <LinearLayout
+            android:id="@+id/mainLinearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="PainEase uses 174hertz Solfeggio frequency both audio and vibrational"
-            android:textAlignment="center"
-            android:textColor="@android:color/white" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginTop="-40dp"> >
 
-        <!-- Counter TextView (will be dynamically populated) -->
-        <TextView
-            android:id="@+id/countdownTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text=""
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white" />
+            <!-- Lottie Animation for phone.json -->
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/phoneLottieAnimationView"
+                android:layout_width="315dp"
+                android:layout_height="382dp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="phone.json"
+                app:lottie_loop="true" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="315dp"
+                android:layout_height="105dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="12dp"
+                android:text="Your phone will start vibrating, place it on where you feel the pain"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_regular"/>
+
+            <TextView
+                android:layout_width="253dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="PainEase uses 174hz Solfeggio frequency both audio and vibrational"
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
+
+            <!-- Counter TextView (will be dynamically populated) -->
+            <TextView
+                android:id="@+id/countdownTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text=""
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

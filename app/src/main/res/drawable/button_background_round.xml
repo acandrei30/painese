@@ -9,10 +9,5 @@
     </item>
 
     <!-- This is for shadow -->
-    <item android:right="1dp" android:top="1dp">
-        <shape>
-            <solid android:color="#5C4C9F" />
-            <corners android:radius="15dp" />
-        </shape>
-    </item>
+
 </layer-list>

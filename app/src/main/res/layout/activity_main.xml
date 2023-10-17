@@ -6,15 +6,22 @@
     android:layout_height="match_parent">
 
     <!-- Lottie Animation View for Background with scaleType set to fitXY -->
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="fitXY" />
+
+    <!-- Lottie Animation View for Background -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_fileName="wave.json"
+        app:lottie_fileName="lottie_stars.json"
         android:scaleType="fitXY"/>
-
     <!-- Your Original Content -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,11 +34,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="You are a"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:layout_marginBottom="8dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:fontFamily="sans-serif-light" />
+            android:fontFamily="@font/montserrat_regular"
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -47,12 +55,16 @@
                 android:text="Male"
                 android:textSize="20sp"
                 android:textColor="@android:color/white"
-                android:backgroundTint="#1B4160"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                app:cornerRadius="16dp" />
+                app:cornerRadius="16dp"
+                android:backgroundTint="@color/button_background_color"
+                android:background="@drawable/button_background_round"
+                android:fontFamily="@font/montserrat_regular"
+                android:elevation="4dp"
+                android:translationZ="4dp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/femaleButton"
@@ -63,12 +75,16 @@
                 android:text="Female"
                 android:textSize="20sp"
                 android:textColor="@android:color/white"
-                android:backgroundTint="#1B4160"
                 android:paddingLeft="30dp"
                 android:paddingRight="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                app:cornerRadius="16dp" />
+                app:cornerRadius="16dp"
+                android:backgroundTint="@color/button_background_color_light"
+                android:background="@drawable/button_background_round_light"
+                android:fontFamily="@font/montserrat_regular"
+                android:elevation="4dp"
+                android:translationZ="4dp"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -5,13 +5,11 @@
     android:layout_height="match_parent">
 
     <!-- Lottie Animation for background -->
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
+    <ImageView
+        android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_fileName="wave.json"
+        android:src="@drawable/background"
         android:scaleType="fitXY" />
 
     <LinearLayout
@@ -37,24 +35,28 @@
             android:layout_marginBottom="16dp"
             android:text="Use headphones for a better experience"
             android:textAlignment="center"
+            android:fontFamily="@font/montserrat_regular"
             android:textColor="@android:color/white"
-
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/proceedWithoutHeadphonesButton"
-            android:layout_width="269dp"
+            android:layout_width="310dp"
             android:layout_height="61dp"
-            android:backgroundTint="#D3D3D3"
-            android:text="Proceed without headphones"
-            android:textColor="@color/black"
-            android:textSize="18sp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:radius="24dp" />
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_background_round_white"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:text="   Proceed without headphones"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+           />
 
     </LinearLayout>
 </FrameLayout>
