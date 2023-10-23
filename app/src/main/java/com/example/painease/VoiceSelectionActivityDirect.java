@@ -44,10 +44,22 @@ public class VoiceSelectionActivityDirect extends AppCompatActivity {
 
     private void setupVoiceButton(Button button, int rawId, String voiceName) {
         button.setOnClickListener(v -> {
-            playSample(rawId, button);
-            button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.resized_small_pause_icon, 0, 0, 0);
-            button.setBackgroundColor(Color.parseColor("#1B9BDB"));
-            showConfirmButtonWithText(voiceName);
+            if(button.isSelected()) {
+                if (mediaPlayer != null) {
+                    mediaPlayer.stop();
+                    mediaPlayer.release();
+                    mediaPlayer = null;
+                }
+                button.setSelected(false);
+                button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.resized_small_play_icon, 0, 0, 0);
+                resetAllButtons();
+            } else {
+                resetAllButtons();
+                playSample(rawId, button);
+                button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.resized_small_pause_icon, 0, 0, 0);
+                button.setSelected(true);
+                showConfirmButtonWithText(voiceName);
+            }
         });
     }
 
@@ -55,21 +67,20 @@ public class VoiceSelectionActivityDirect extends AppCompatActivity {
         if (mediaPlayer != null) {
             mediaPlayer.stop();
             mediaPlayer.release();
-            resetAllButtons();
         }
 
         mediaPlayer = MediaPlayer.create(this, rawId);
         mediaPlayer.start();
         mediaPlayer.setOnCompletionListener(mp -> {
             sourceButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.resized_small_play_icon, 0, 0, 0);
-            sourceButton.setBackgroundColor(Color.parseColor("#1B4160"));
+            sourceButton.setSelected(false); // Ensure the button returns to its default appearance
         });
     }
 
     private void resetAllButtons() {
-        annaButton.setBackgroundColor(Color.parseColor("#1B4160"));
-        paulButton.setBackgroundColor(Color.parseColor("#1B4160"));
-        claireButton.setBackgroundColor(Color.parseColor("#1B4160"));
+        annaButton.setSelected(false);
+        paulButton.setSelected(false);
+        claireButton.setSelected(false);
 
         annaButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.resized_small_play_icon, 0, 0, 0);
         paulButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.resized_small_play_icon, 0, 0, 0);
@@ -82,7 +93,7 @@ public class VoiceSelectionActivityDirect extends AppCompatActivity {
     }
 
     private void navigateToInstructionsActivity() {
-        Intent intent = new Intent(VoiceSelectionActivityDirect.this, StartSessionActivity.class);
+        Intent intent = new Intent(VoiceSelectionActivityDirect.this, InstructionsActivity.class);
         intent.putExtra("selectedPart", selectedPart);
         intent.putExtra("selectedVoice", confirmChoiceButton.getText().toString().replace("Select ", ""));
         startActivity(intent);

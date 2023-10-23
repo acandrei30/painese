@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView; // Import TextView
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FeedbackActivity extends AppCompatActivity {
@@ -43,13 +43,8 @@ public class FeedbackActivity extends AppCompatActivity {
         noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Hide the buttons
-                yesButton.setVisibility(View.GONE);
-                noButton.setVisibility(View.GONE);
-
-                // Change the TextView text
-                TextView instructionsTextView = findViewById(R.id.instructionsTextView);
-                instructionsTextView.setText("Repeat this session at least twice daily until you feel release from your pain");
+                Intent intent = new Intent(FeedbackActivity.this, FeedbackFormActivity.class);
+                startActivity(intent);
             }
         });
 

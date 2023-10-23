@@ -7,25 +7,27 @@
     android:gravity="center"
     android:background="@android:color/transparent">
 
-    <!-- Lottie Animation for background -->
+    <!-- Background Image -->
     <ImageView
         android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:src="@drawable/background" />
 
     <!-- Title -->
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="294dp"
+        android:layout_height="58dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:text="Tell us what we should improve"
-        android:textSize="24sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Send us an email with what we should improve"
+        android:textColor="#FFFFFF"
+        android:textSize="21sp"
         android:textStyle="bold"
-        android:textColor="#FFFFFF" />
+        android:gravity="center"/>
 
     <!-- Feedback Input -->
     <EditText
@@ -41,17 +43,35 @@
         android:minLines="4"
         android:gravity="top"
         android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <!-- Send Button -->
     <Button
         android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="52dp"
         android:layout_below="@+id/feedbackEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Send"
-        android:textSize="18sp"
-        android:textColor="#000" />
+        android:background="@drawable/button_background_round"
+        android:backgroundTint="@color/button_background_color"
+        android:text="     Send"
+        android:textColor="#FFFFFF"
+        android:textSize="21sp"
+        android:gravity="center"/>
+
+    <!-- Support Email Text at the bottom -->
+    <TextView
+        android:id="@+id/supportEmailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="support@paineaseapp.com"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_regular" />
+
 </RelativeLayout>

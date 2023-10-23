@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_vertical|center_horizontal"
-            android:paddingTop="30dp">
+            android:paddingTop="100dp">
 
             <!-- Title Text -->
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:text="What is your current\n pain level?"
+                android:text="What is your\n current pain level?"
                 android:textSize="18sp"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"

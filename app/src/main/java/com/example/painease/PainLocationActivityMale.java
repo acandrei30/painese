@@ -165,7 +165,7 @@ public class PainLocationActivityMale extends AppCompatActivity {
             // Touch Handling for Front Body View
 
 /// For Upper Body
-            if (y < height * 0.5) {
+            if (y < height * 0.6) {
                 if (y < height * 0.125) {
                     headOverlay.setVisibility(View.VISIBLE);
                     selectedPartName = "malehead";

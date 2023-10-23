@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import com.airbnb.lottie.LottieAnimationView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EmotionalPhysicalAssociation extends AppCompatActivity {
@@ -15,7 +16,8 @@ public class EmotionalPhysicalAssociation extends AppCompatActivity {
         setContentView(R.layout.activity_emotional_physical_association);
 
         ImageView progressIconImageView = findViewById(R.id.progressIconImageView);
-        TextView instructionTextView = findViewById(R.id.instruction); // Added this line
+        TextView instructionTextView = findViewById(R.id.instruction);
+        LottieAnimationView lottiePainAnimationView = findViewById(R.id.lottiePainAnimationView); // Added this line to fetch the Lottie Animation View
 
         String painType = getIntent().getStringExtra("painType"); // Retrieve pain type
         if (painType != null) {
@@ -35,6 +37,15 @@ public class EmotionalPhysicalAssociation extends AppCompatActivity {
                     break;
             }
         }
+
+        // Set the appropriate Lottie animation based on gender
+        String gender = getIntent().getStringExtra("GENDER");
+        if ("male".equals(gender)) {
+            lottiePainAnimationView.setAnimation("man_meditation.json");
+        } else {
+            lottiePainAnimationView.setAnimation("woman_meditation.json");
+        }
+
         progressIconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

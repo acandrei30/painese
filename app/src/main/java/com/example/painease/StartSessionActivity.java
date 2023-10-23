@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.content.pm.ActivityInfo;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.view.WindowManager;
 import android.widget.Toast;
 
 
@@ -83,7 +83,7 @@ public class StartSessionActivity extends AppCompatActivity {
 
 
         String selectedVoice = getIntent().getStringExtra("selectedVoice");
-
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
         super.onCreate(savedInstanceState);

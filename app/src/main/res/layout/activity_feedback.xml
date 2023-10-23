@@ -25,7 +25,8 @@
     android:textColor="@android:color/white"
     android:layout_marginBottom="100dp"
     android:textSize="24sp"
-    android:textStyle="bold" />
+    android:textStyle="bold"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <!-- Buttons -->
     <LinearLayout
@@ -43,13 +44,16 @@
             android:text="Yes"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:backgroundTint="#1B4160"
             android:paddingLeft="24dp"
             android:paddingTop="10dp"
             android:paddingRight="24dp"
             android:paddingBottom="10dp"
             android:radius="16dp"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/button_background_color"
+            android:background="@drawable/button_background_round"
+            android:fontFamily="@font/montserrat_regular"
+            />
 
 
 
@@ -60,7 +64,9 @@
             android:text="No"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:backgroundTint="#1B4160"
+            android:backgroundTint="@color/button_background_color"
+            android:background="@drawable/button_background_round"
+            android:fontFamily="@font/montserrat_regular"
             android:paddingLeft="24dp"
             android:paddingTop="10dp"
             android:paddingRight="24dp"

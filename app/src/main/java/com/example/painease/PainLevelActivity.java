@@ -24,7 +24,7 @@ public class PainLevelActivity extends AppCompatActivity {
         // Update the title based on pain type
         TextView titleText = findViewById(R.id.titleText);
         if (painType != null && !painType.isEmpty()) {
-            titleText.setText("What is your current " + painType.toLowerCase() + " level?");
+            titleText.setText("What is your current\n " + painType.toLowerCase() + " level?");
         }
 
         // Resize the icons for the buttons
@@ -44,8 +44,8 @@ public class PainLevelActivity extends AppCompatActivity {
     private void resizeButtonIcon(Button button, int drawableResId) {
         Drawable drawable = getResources().getDrawable(drawableResId);
 
-        int newWidth = (int) (drawable.getIntrinsicWidth() * (2 / 3.0)); // resizing to 66.67% of original size
-        int newHeight = (int) (drawable.getIntrinsicHeight() * (2 / 3.0)); // resizing to 66.67% of original size
+        int newWidth = (int) (drawable.getIntrinsicWidth() * (1.8 / 3.0)); // resizing to 66.67% of original size
+        int newHeight = (int) (drawable.getIntrinsicHeight() * (1.8 / 3.0)); // resizing to 66.67% of original size
         drawable.setBounds(0, 0, newWidth, newHeight);
 
         button.setCompoundDrawables(drawable, null, null, null);

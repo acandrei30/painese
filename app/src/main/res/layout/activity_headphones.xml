@@ -23,8 +23,8 @@
 
         <ImageView
             android:id="@+id/headphonesImageView"
-            android:layout_width="250dp"
-            android:layout_height="247dp"
+            android:layout_width="241dp"
+            android:layout_height="218dp"
             android:layout_gravity="center"
             android:src="@drawable/headphones" />
 
@@ -42,8 +42,8 @@
 
         <Button
             android:id="@+id/proceedWithoutHeadphonesButton"
-            android:layout_width="310dp"
-            android:layout_height="61dp"
+            android:layout_width="250dp"
+            android:layout_height="51dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
@@ -52,11 +52,12 @@
             android:backgroundTint="@color/white"
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
-            android:text="   Proceed without headphones"
+            android:text="    Proceed without headphones"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="13sp"
             android:textStyle="bold"
-           />
+            android:elevation="4dp"
+            android:translationZ="4dp"/>
 
     </LinearLayout>
 </FrameLayout>

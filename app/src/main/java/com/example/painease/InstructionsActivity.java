@@ -173,7 +173,7 @@ public class InstructionsActivity extends AppCompatActivity {
                 break;
 
             default:
-                imageResource = R.drawable.instructions_test; // This is your default image.
+                imageResource = R.drawable.male_close_head; // This is your default image.
                 break;
         }
 

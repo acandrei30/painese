@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("C:\\Program Files\\Java\\jdk-20\\bin\\playstoreapp.keystore")
+            storePassword = "Gmailpass30@"
+            keyAlias = "painease"
+            keyPassword = "GMailpass30@"
+        }
+    }
     namespace = "com.example.painease"
     compileSdk = 33
 
